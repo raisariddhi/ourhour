@@ -46,4 +46,5 @@ permission issues on the CSL machines. I could not find any other workaround.
 
 
 ## License
-MIT
+![MIT](https://github.com/raisariddhi/ourhour/blob/master/LICENSE.md)
+

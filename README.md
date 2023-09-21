@@ -1,21 +1,19 @@
 # OurHour
+OurHour is a simple, lightweight, and intuitive web-application to be used by students and TAs during office hours at universities. 
 
+It's simplistic design aims to create an intuitive user-flow to increase usability and decrease the learning curve. Combined with a stong backend it creates a speedy and bug-less software to use on-the-go.
 
-## Team Members/Roles
+This project was developed over the course of a semester by the following people:
+Raisa, Eric, Austin, Ritwick, Karim, Khalid
 
-| Pair One | Pair Two | Pair Three |
-| -------- | -------- | ---------- |
-| Eric     | Raisa    | Karim      |
-| Austin   | Ritwick  | Khalid     |
-
-Project Owner: Eric
-
-Scrum Master: Ritwick
 
 ## Logistics
-[Discord Link](https://discord.gg/vdwtMCV5Xx)
+We used Discord and Notion to conduct this project. 
+Raisa: UI/UX Developer and Product Manager
+Ritwick: Front-end development
+Karim & Khalid: Network management (Docker and APIs)
+Austin & Eric: Backend developnent (Data structures and databases)
 
-[Kanban Board Invite](https://www.notion.so/invite/4e18c27965dceb552e8530782599b42ed4e53348)
 
 ## Build Instructions
 `rebuild-dev.sh` builds the project using bind mounts at `./backend` and `./frontend` to their respective
@@ -31,9 +29,5 @@ NOTE: `rebuild-dev.sh` and `rebuild-prod.sh` allows any user to access the direc
 permission issues on the CSL machines. I could not find any other workaround.
 
 
-## TODO
-1. Contribute to Requirement/Specification Document (located at reqs_specs.md in this repo)
-2. Join Notion
-3. Fill out this readme if you think of anything else
-    
-    
+## License
+MIT

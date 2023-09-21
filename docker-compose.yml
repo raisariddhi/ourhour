@@ -1,0 +1,47 @@
+version: '3.8'
+services:
+    db2:
+        image: mysql/mysql-server:latest
+        restart: unless-stopped
+        environment:
+            - MYSQL_ROOT_HOST=%
+            - MYSQL_DATABASE_HOST=%
+        env_file:
+            - variables.env
+        ports:
+            - "53306:3306"
+    backend:
+        environment:
+            - MYSQL_USER='root'
+            - MYSQL_DATABASE_HOST=db2
+        env_file:
+            - variables.env
+        build: ./backend
+        working_dir: /backend
+        volumes: 
+            - staticfiles:/backend/static
+        depends_on:
+            db2:
+                condition: service_healthy
+        ports:
+            - "8000:8000"
+        command: bash -c    "python manage.py makemigrations &&
+                            python manage.py migrate &&
+                            python manage.py collectstatic --no-input &&
+                            python manage.py runserver 0.0.0.0:8000"
+    frontend:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile-prod
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - staticfiles:/djangostatic
+        depends_on:
+            - backend
+
+
+volumes:
+    OurHour-db:
+    staticfiles:

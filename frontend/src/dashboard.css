@@ -1,0 +1,64 @@
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .class-card {
+    width: calc(33.33% - 10px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .class-card h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .class-card p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .class-card button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color
+  }  
+
+  .no-classes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .no-classes .message-card {
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .no-classes h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #777;
+  }
+  

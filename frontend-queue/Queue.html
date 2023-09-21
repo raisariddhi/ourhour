@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>OurHour</title>
+	<style>
+		/* Set the background color for the page */
+		body {
+			background-color: #f2f2f2;
+		}
+		/* Set the font color and alignment for the headings */
+		h1, h2 {
+			color: black;
+			text-align: center;
+		}
+		/* Styling for the "Done" and "Remove" buttons */
+		button {
+			background-color: red;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		/* Styling for the text input field */
+        input[type=text] {
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			margin-right: 10px;
+			width: 200px;
+		}
+		/* Styling for the unordered list */
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		/* Styling for each list item */
+		li {
+			background-color: white;
+			color: black;
+			padding: 10px;
+			border-radius: 5px;
+			margin: 10px;
+			text-align: center;
+			min-width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<!-- Heading for the page -->
+	<h1 style="color: red;">OurHour</h1>
+    <!-- Subheading for the waitlist -->
+	<h2>Office Hour Waitlist</h2>
+	<!-- Text input field for entering the user's name -->
+	<input type="text" id="nameInput" placeholder="Enter your name" onkeydown="if(event.keyCode==13) addName()">
+	<!-- Button to add the user's name to the list -->
+	<button type="button" onclick="addName()">Done</button>
+	<!-- Button to remove the first name from the list -->
+	<button type="button" onclick="removeName()">Remove</button>
+	<!-- Unordered list to display the names -->
+	<ul id="nameList"></ul>
+	<!-- JavaScript code for adding names to the list -->
+	<script>
+		function addName() {
+			// Get the value of the name input field
+			var name = document.getElementById("nameInput").value;
+
+			// Create a new list item element
+			var li = document.createElement("li");
+			// Add the user's name to the list item
+			li.appendChild(document.createTextNode((document.getElementById("nameList").children.length + 1) + ". " + name));
+
+			// Get the unordered list element and append the new list item
+			var nameList = document.getElementById("nameList");
+			nameList.appendChild(li);
+
+			// Clear the text input field
+			document.getElementById("nameInput").value = "";
+		}
+
+function removeName() {
+  // Get the unordered list element
+  var nameList = document.getElementById("nameList");
+  // Get the first list item element
+  var li = nameList.querySelector("li:first-child");
+  // Remove the first list item
+  nameList.removeChild(li);
+  // Loop through the remaining list items and move them one space forward
+  for (var i = 0; i < nameList.children.length; i++) {
+    var child = nameList.children[i];
+    // Subtract 1 from the text content of the list item to update the position number
+    child.textContent = (i + 1) + ". " + child.textContent.substring(child.textContent.indexOf(" ") + 1);
+  }
+}
+	</script>
+</body>
+</html>
